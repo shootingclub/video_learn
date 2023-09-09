@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string>
 
-static int rec_status = 1;
+
 #define FMT_NAME "avfoundation"
 
 extern "C" { //C++中特殊处理
