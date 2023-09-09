@@ -4,17 +4,17 @@
 #define AUDIO_SAMPLING_H
 
 
-//extern "C" { //C++中特殊处理
-//#include "libavdevice/avdevice.h"
-//#include "libavformat/avformat.h"
-//#include "libavutil/log.h"
-//#include "libavcodec/avcodec.h"
-//}
-
+extern "C" { //C++中特殊处理
 #include "libavdevice/avdevice.h"
 #include "libavformat/avformat.h"
 #include "libavutil/log.h"
 #include "libavcodec/avcodec.h"
+}
+
+//#include "libavdevice/avdevice.h"
+//#include "libavformat/avformat.h"
+//#include "libavutil/log.h"
+//#include "libavcodec/avcodec.h"
 
 void audio_sampling();
 
