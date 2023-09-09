@@ -7,6 +7,7 @@
 #include <string>
 
 static int rec_status = 1;
+#define FMT_NAME "avfoundation"
 
 extern "C" { //C++中特殊处理
 #include "libavdevice/avdevice.h"
@@ -46,7 +47,7 @@ void Audio::record(const char *file_name, int record_time) {
     // macos 使用 avfoundation
     // windows 使用 dshow
     // linux 使用 alsa
-    const AVInputFormat *avInputFormat = av_find_input_format("avfoundation");
+    const AVInputFormat *avInputFormat = av_find_input_format(FMT_NAME);
     //3
     int ret;
     char errors[1024];
@@ -101,9 +102,14 @@ void Audio::record(const char *file_name, int record_time) {
     //关闭文件流
     fclose(outfile);
 
+    AVStream *stream = fmt_ctx->streams[0];
+    AVCodecParameters *params = stream->codecpar;
+    av_log(nullptr, AV_LOG_DEBUG, "结束录制 采样率：%d  声道：%d 位深：%d \n", params->sample_rate, params->channels,
+           av_get_bits_per_sample(params->codec_id));
     // 录制结束 释放上下文 release ctx
     avformat_close_input(&fmt_ctx);
-    av_log(nullptr, AV_LOG_DEBUG, "finish \n");
+
+
 }
 
 #endif
