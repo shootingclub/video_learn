@@ -40,79 +40,6 @@ protected:
 };
 
 
-void Audio::sampling() {
-    // 打开设备状态码，0-成功，否则失败
-    int ret = 0;
-
-    char errors[1024] = {0,};
-
-    // 上下文相关
-    AVFormatContext *fmt_ctx = NULL;
-    AVDictionary *options = NULL;
-
-    // 包相关
-    int count = 0;
-    AVPacket pkt;
-
-    // 设置日志级别
-    av_log_set_level(AV_LOG_DEBUG);
-
-    // 先传入视频设备编号，再传入音频设备编号
-    // [[video device]:[audit device]]
-    char *devicename = ":0";
-
-    // 注册音频设备
-    avdevice_register_all();
-
-    // 获取输入数据格式
-    const AVInputFormat *iformat = av_find_input_format("avfoundation");
-
-
-    if ((ret = avformat_open_input(&fmt_ctx, devicename, iformat, &options)) < 0) {
-        av_strerror(ret, errors, 1024);
-        printf("Failed to open audio device, [%d]%s\n", ret, errors);
-        return;
-    }
-
-    av_init_packet(&pkt);
-
-    // 定义录制文件保存路径
-    char *out_path = "/Users/yaohua/c_workspace/vido_learn/audio.pcm";
-    // 打开文件
-    FILE *out_file = fopen(out_path, "wb+");
-
-    while (count < 500) {
-        ret = av_read_frame(fmt_ctx, &pkt);
-        if (ret == 1 || ret == -35) {
-            usleep(10000);
-            continue;
-        }
-
-        if (ret < 0) {
-            break;
-        }
-        count++;
-
-        av_log(NULL, AV_LOG_INFO, "pkt size is %d(%p), count is %d \n",
-               pkt.size, pkt.data, count);
-        // 将数据以二进制形式写入文件
-        fwrite(pkt.data, pkt.size, 1, out_file);
-        // 从缓冲区写入文件
-        fflush(out_file);
-        // 释放pkg指针
-        av_packet_unref(&pkt);
-    }
-
-    // 关闭文件
-    fclose(out_file);
-
-    // 关闭设备，释放上下文指针
-    avformat_close_input(&fmt_ctx);
-
-    av_log(NULL, AV_LOG_DEBUG, "finish wangjiangjiang\n");
-    return;
-}
-
 void Audio::sampling(const char *file_name, int record_time) {
     //0
     int ret;
@@ -170,6 +97,7 @@ void Audio::sampling(const char *file_name, int record_time) {
 
     }
 
+    //6
     // 读取多少秒
     while (record_time) {
         ret = av_read_frame(fmt_ctx, &pkt);
