@@ -10,7 +10,7 @@ int main() {
     auto info = avcodec_configuration();//avcodec配置信息
     av_log(nullptr, AV_LOG_DEBUG, "配置:%s", info);
 
-    Audio::record("/Users/yaohua/c_workspace/vido_learn/audio.pcm", 10);
+    Audio::sampling("/Users/yaohua/c_workspace/vido_learn/audio.pcm", 500);
     return 0;
 }
 
