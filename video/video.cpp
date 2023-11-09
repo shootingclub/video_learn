@@ -315,7 +315,7 @@ namespace video {
             }
             av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data, record_time);
 
-            // YYYYYYYYUVVU NV12
+            // YYYYYYYYUVUV NV12
             // YYYYYYYYUUVV YUV420
             // copy y 数据 data[0]
             int size = FMT_V_HEIGHT * FMT_V_WIDTH;
