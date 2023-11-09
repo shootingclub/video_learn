@@ -278,6 +278,19 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f test/lib/googletest/CMakeFiles/gtest_main.dir/build.make test/lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+#=============================================================================
+# Target rules for targets named example
+
+# Build rule for target.
+example: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example
+.PHONY : example
+
+# fast build rule for target.
+example/fast:
+	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/example.dir/build.make examples/CMakeFiles/example.dir/build
+.PHONY : example/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -317,6 +330,7 @@ help:
 	@echo "... Google_Tests_run"
 	@echo "... a"
 	@echo "... audio"
+	@echo "... example"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

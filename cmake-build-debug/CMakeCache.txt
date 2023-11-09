@@ -294,6 +294,15 @@ audio_IS_TOP_LEVEL:STATIC=OFF
 audio_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/audio
 
 //Value Computed by CMake
+example_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/examples
+
+//Value Computed by CMake
+example_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+example_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/examples
+
+//Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/test/lib/googlemock
 
 //Value Computed by CMake
@@ -495,7 +504,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -10,7 +10,8 @@
 					[
 						1,
 						2,
-						3
+						3,
+						7
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
@@ -22,7 +23,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						8
+						9
 					]
 				},
 				{
@@ -37,7 +38,7 @@
 					"source" : "video",
 					"targetIndexes" : 
 					[
-						7
+						8
 					]
 				},
 				{
@@ -99,7 +100,7 @@
 						6
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-test.lib.googlemock-Debug-f23e0c7ed95e3b1725cb.json",
+					"jsonFile" : "directory-test.lib.googlemock-Debug-4874f591d0fb9ddce3aa.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -109,14 +110,14 @@
 					"source" : "test/lib/googlemock",
 					"targetIndexes" : 
 					[
-						3,
-						4
+						4,
+						5
 					]
 				},
 				{
 					"build" : "test/lib/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-test.lib.googletest-Debug-10f32ab4a0236521e53a.json",
+					"jsonFile" : "directory-test.lib.googletest-Debug-88b91a59954dd505eedf.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -126,8 +127,23 @@
 					"source" : "test/lib/googletest",
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
+					]
+				},
+				{
+					"build" : "examples",
+					"jsonFile" : "directory-examples-Debug-1c8b83b621b6ef38a245.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 7,
+					"source" : "examples",
+					"targetIndexes" : 
+					[
+						3
 					]
 				}
 			],
@@ -139,7 +155,8 @@
 					[
 						1,
 						2,
-						3
+						3,
+						7
 					],
 					"directoryIndexes" : 
 					[
@@ -148,7 +165,7 @@
 					"name" : "video_learn",
 					"targetIndexes" : 
 					[
-						8
+						9
 					]
 				},
 				{
@@ -160,7 +177,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						7
+						8
 					]
 				},
 				{
@@ -217,8 +234,8 @@
 					"parentIndex" : 4,
 					"targetIndexes" : 
 					[
-						3,
-						4
+						4,
+						5
 					]
 				},
 				{
@@ -230,8 +247,20 @@
 					"parentIndex" : 5,
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						7
+					],
+					"name" : "example",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
 					]
 				}
 			],
@@ -257,6 +286,13 @@
 					"jsonFile" : "target-audio-Debug-f275ea01d83c3c2ec70c.json",
 					"name" : "audio",
 					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "example::@714eac15f71a94114fdf",
+					"jsonFile" : "target-example-Debug-a03aadb9e98ac955e2f2.json",
+					"name" : "example",
+					"projectIndex" : 7
 				},
 				{
 					"directoryIndex" : 5,

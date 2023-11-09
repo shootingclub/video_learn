@@ -47,6 +47,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.26.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeSystem.cmake"
+  "/Users/yaohua/c_workspace/video_learn/examples/CMakeLists.txt"
   "/Users/yaohua/c_workspace/video_learn/test/CMakeLists.txt"
   "/Users/yaohua/c_workspace/video_learn/test/lib/CMakeLists.txt"
   "/Users/yaohua/c_workspace/video_learn/test/lib/googlemock/CMakeLists.txt"
@@ -81,6 +82,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "test/lib/googletest/generated/gtest.pc"
   "test/lib/googletest/generated/gtest_main.pc"
   "test/lib/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -94,4 +96,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/lib/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "test/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "test/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "examples/CMakeFiles/example.dir/DependInfo.cmake"
   )

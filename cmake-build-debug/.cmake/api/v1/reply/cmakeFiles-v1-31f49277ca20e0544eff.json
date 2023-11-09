@@ -291,6 +291,9 @@
 		},
 		{
 			"path" : "test/lib/googletest/cmake/gtest_main.pc.in"
+		},
+		{
+			"path" : "examples/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",
