@@ -19,6 +19,10 @@ extern "C" { //C++中特殊处理
 #define VIDEO_FMT_NV12_SIZE 460800
 #define VIDEO_FMT_DEFAULT_SIZE 614400
 #define BUFFER_SIZE 1024
+#define FMT_CAMERA "0"
+#define FMT_DESK "1"
+#define FMT_V_WIDTH 640
+#define FMT_V_HEIGHT 480
 
 #include <iostream>
 #include <unistd.h>
@@ -31,6 +35,8 @@ namespace video {
         void fmtDefault(const char *file_name, int record_time);
 
         void fmtNv12(const char *file_name, int record_time);
+
+        void fmtH264(const char *file_name, int record_time);
     };
 }
 

@@ -6,6 +6,7 @@
 
 namespace video {
 
+
     AVDictionary **set_video_options(AVDictionary **options,
                                      char *video_size,
                                      char *framerate,
@@ -50,6 +51,48 @@ namespace video {
         }
     }
 
+    void open_encoder(int width, int height, AVCodecContext **enc_ctx) {
+        const AVCodec *codec = NULL;
+        codec = avcodec_find_encoder_by_name("libx264");
+        if (!codec) {
+            printf("codec libx264 not found \n");
+            exit(-1);
+        }
+        *enc_ctx = avcodec_alloc_context3(codec);
+        if (!*enc_ctx) {
+            printf("avcodec_alloc_context3 failed \n");
+            exit(-1);
+        }
+        (*enc_ctx)->profile = FF_PROFILE_H264_HIGH_444;
+        (*enc_ctx)->level = 50; // 5.0 清晰度非常高
+        (*enc_ctx)->width = FMT_V_WIDTH;
+        (*enc_ctx)->height = FMT_V_HEIGHT;
+        (*enc_ctx)->gop_size = 250; //gop之间的间隔，如果设置很小的话那么i帧就很多，码流就很大；同理相反
+        (*enc_ctx)->keyint_min = 25;//每隔25帧，自动插入一个i帧
+    }
+
+    AVFrame *create_frame(int width, int height) {
+        int ret;
+        AVFrame *avFrame = NULL;
+        avFrame = av_frame_alloc();
+        if (!avFrame) {
+            printf("create_av_frame failed \n");
+            av_frame_free(&avFrame);
+            return nullptr;
+        }
+        avFrame->width = width;
+        avFrame->height = height;
+        avFrame->format = AV_PIX_FMT_YUV420P;
+
+        // alloc inner memory
+        ret = av_frame_get_buffer(avFrame, 32); // 按32位对齐 4字节
+        if (ret < 0) {
+            printf("av_frame_get_buffer failed \n");
+            av_frame_free(&avFrame);
+            return nullptr;
+        }
+        return avFrame;
+    }
 
     void video::fmtDefault(const char *file_name, int record_time) {
         int ret;
@@ -58,10 +101,11 @@ namespace video {
         // 可以是一个网络地址，本地文件，对于设备给一个设备名字就行 获取音频流
         // 先传入视频设备编号，再传入音频设备编号
         // [[video device]:[audit device]]
-        const char *devicename = "0";
+        const char *devicename = FMT_CAMERA;
 
         // 上下文相关
         AVFormatContext *fmt_ctx = NULL;
+        AVCodecContext *enc_ctx = NULL;
         // avInputFormat 输入设备方式的参数设置
         AVDictionary *options = NULL;
         // 初始化av_packet 读取设备音频包
@@ -137,7 +181,7 @@ namespace video {
         // 可以是一个网络地址，本地文件，对于设备给一个设备名字就行 获取音频流
         // 先传入视频设备编号，再传入音频设备编号
         // [[video device]:[audit device]]
-        const char *devicename = "0";
+        const char *devicename = FMT_CAMERA;
 
         // 上下文相关
         AVFormatContext *fmt_ctx = NULL;
@@ -209,4 +253,106 @@ namespace video {
 
     }
 
+
+    void video::fmtH264(const char *file_name, int record_time) {
+
+        int ret;
+        char errors[BUFFER_SIZE];
+        // 给以个目标地址获取音视频流，注释: ":0" 获取本地外置麦克风获取音频流
+        // 可以是一个网络地址，本地文件，对于设备给一个设备名字就行 获取音频流
+        // 先传入视频设备编号，再传入音频设备编号
+        // [[video device]:[audit device]]
+        const char *devicename = FMT_CAMERA;
+
+        // 上下文相关
+        AVFormatContext *fmt_ctx = NULL;
+        AVCodecContext *enc_ctx = NULL;
+        // avInputFormat 输入设备方式的参数设置
+        AVDictionary *options = NULL;
+        // 初始化av_packet 读取设备音频包
+        AVPacket pkt;
+
+        //1 设置视频参数 打开输入设备，准备开始录音
+        av_dict_set(&options, "video_size", "640x480", 0);
+        av_dict_set(&options, "framerate", "30", 0);
+        av_dict_set(&options, "pixel_format", "nv12", 0);
+        open_video(&fmt_ctx, devicename, &options);
+        // 打开编码器
+        open_encoder(FMT_V_WIDTH, FMT_V_HEIGHT, &enc_ctx);
+        // 创建AVFrame
+        AVFrame *frame = create_frame(FMT_V_WIDTH, FMT_V_HEIGHT);
+        // 创建AVPacket
+        AVPacket *newPacket = av_packet_alloc();
+        if (!newPacket) {
+            printf("av_packet_alloc failed \n");
+            av_packet_free(&newPacket);
+        }
+
+        //2 创建文件
+        FILE *out_file = fopen(file_name, "wb+");
+
+        //3 初始化数据包
+        ret = av_new_packet(&pkt, FMT_PACKET_SIZE);
+        if (ret < 0) {
+            av_strerror(ret, errors, BUFFER_SIZE);
+            printf("init av_new_packet is error ,[%d],%s\n", ret, errors);
+            return;
+
+        }
+
+        // 读取多少秒
+        while (record_time) {
+            //4 将数据读取到数据包内
+            ret = av_read_frame(fmt_ctx, &pkt);
+            // 这里可能读取的时候，ret返回-35 表示设备还没准备好, 先睡眠1s
+            if (ret == 1 || ret == -35) {
+                usleep(10000);
+                continue;
+            }
+
+            if (ret < 0) {
+                break;
+            }
+            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data, record_time);
+
+            // YYYYYYYYUVVU NV12
+            // YYYYYYYYUUVV YUV420
+            // copy y 数据 data[0]
+            int size = FMT_V_HEIGHT * FMT_V_WIDTH;
+            std::cout << size << std::endl;
+            // size 之后的data是 UV UV UV ....
+            memcpy(frame->data[0], pkt.data, size);
+            for (int i = 0; i < size / 4; i++) {
+                frame->data[1][i] = pkt.data[size + i * 2];
+                frame->data[2][i] = pkt.data[size + i * 2 + 1];
+            }
+
+            fwrite(frame->data[0], size, 1, out_file);
+            fwrite(frame->data[1], size / 4, 1, out_file);
+            fwrite(frame->data[2], size / 4, 1, out_file);
+            fflush(out_file);
+            // 释放pkg指针
+            av_packet_unref(&pkt);
+            --record_time;
+        }
+
+        //关闭文件流
+        fclose(out_file);
+
+        av_log(NULL, AV_LOG_DEBUG, "finish\n");
+
+        AVStream *stream = fmt_ctx->streams[0];
+        AVCodecParameters *params = stream->codecpar;
+        av_log(nullptr, AV_LOG_DEBUG,
+               "结束录制 采样率：%d  声道：%d 位深：%d 采样格式：%d 每一个样本的一个声道占用多少个字节:%d \n",
+               params->sample_rate,
+               params->channels,
+               av_get_bits_per_sample(params->codec_id),
+               params->format,
+               av_get_bytes_per_sample((AVSampleFormat) params->format)
+        );
+        // 关闭设备，释放上下文指针
+        avformat_close_input(&fmt_ctx);
+
+    }
 }
