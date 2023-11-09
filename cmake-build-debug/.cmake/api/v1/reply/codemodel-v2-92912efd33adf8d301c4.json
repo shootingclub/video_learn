@@ -1,0 +1,317 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "video",
+					"jsonFile" : "directory-video-Debug-89e3ed14b945bfb1594c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "video",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "audio",
+					"jsonFile" : "directory-audio-Debug-cf9593505b7cdf579acb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "audio",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-test-Debug-451c0598f41488bb20b9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "test/lib",
+					"childIndexes" : 
+					[
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-test.lib-Debug-03bfb6d1754753c687ec.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 4,
+					"source" : "test/lib"
+				},
+				{
+					"build" : "test/lib/googlemock",
+					"childIndexes" : 
+					[
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-test.lib.googlemock-Debug-f23e0c7ed95e3b1725cb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 5,
+					"source" : "test/lib/googlemock",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"build" : "test/lib/googletest",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-test.lib.googletest-Debug-10f32ab4a0236521e53a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 6,
+					"source" : "test/lib/googletest",
+					"targetIndexes" : 
+					[
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "video_learn",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "video",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "audio",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						4
+					],
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						5
+					],
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 3
+				},
+				{
+					"childIndexes" : 
+					[
+						6
+					],
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "gmock",
+					"parentIndex" : 4,
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "gtest",
+					"parentIndex" : 5,
+					"targetIndexes" : 
+					[
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "Google_Tests_run::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Google_Tests_run-Debug-0023b9d66386ef94dbf3.json",
+					"name" : "Google_Tests_run",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "a::@882ca0cc851fe790ef9f",
+					"jsonFile" : "target-a-Debug-309df780803950da1bb2.json",
+					"name" : "a",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "audio::@882ca0cc851fe790ef9f",
+					"jsonFile" : "target-audio-Debug-f275ea01d83c3c2ec70c.json",
+					"name" : "audio",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "gmock::@8083decb3127cd374971",
+					"jsonFile" : "target-gmock-Debug-505c06252abdaddc67d3.json",
+					"name" : "gmock",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "gmock_main::@8083decb3127cd374971",
+					"jsonFile" : "target-gmock_main-Debug-82b8d944c0db21d9e345.json",
+					"name" : "gmock_main",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "gtest::@838963ba4e42fda1c95a",
+					"jsonFile" : "target-gtest-Debug-7bea75de962e3721809f.json",
+					"name" : "gtest",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "gtest_main::@838963ba4e42fda1c95a",
+					"jsonFile" : "target-gtest_main-Debug-df0a2c8b2820c9e89dd9.json",
+					"name" : "gtest_main",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "video::@e455e51b0cf36eed4224",
+					"jsonFile" : "target-video-Debug-680af5f50bbb6fcdec28.json",
+					"name" : "video",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "video_learn::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-video_learn-Debug-0b12437ab79d4e332058.json",
+					"name" : "video_learn",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/yaohua/c_workspace/video_learn/cmake-build-debug",
+		"source" : "/Users/yaohua/c_workspace/video_learn"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
