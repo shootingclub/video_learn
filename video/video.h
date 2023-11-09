@@ -13,14 +13,26 @@ extern "C" { //C++中特殊处理
 #include "libavcodec/avcodec.h"
 #include "libswresample/swresample.h" // 从采样
 }
+#define FMT_NAME "avfoundation"
+#define FMT_PACKET_SIZE 2048
+#define BUFFER_SIZE 1024
+#define VIDEO_FMT_NV12_SIZE 460800
+#define VIDEO_FMT_DEFAULT_SIZE 614400
+#define BUFFER_SIZE 1024
 
 #include <iostream>
+#include <unistd.h>
+#include <cstring>
 
-class video {
+namespace video {
+    class video {
 
-public:
-    void haha();
-};
+    public:
+        void fmtDefault(const char *file_name, int record_time);
+
+        void fmtNv12(const char *file_name, int record_time);
+    };
+}
 
 
 #endif //VIDEO_LEARN_VIDEO_H

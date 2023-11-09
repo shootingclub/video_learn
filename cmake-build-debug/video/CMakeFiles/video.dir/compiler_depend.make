@@ -273,8 +273,26 @@ video/CMakeFiles/video.dir/video.cpp.o: /Users/yaohua/c_workspace/video_learn/vi
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/bitset \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/__bit_reference
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/__bit_reference \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_posix_vdisable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_uuid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/gethostuuid.h
 
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_uuid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_select.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_posix_vdisable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/unistd.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/unistd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/__bsd_locale_defaults.h:
 
@@ -366,7 +384,11 @@ video/CMakeFiles/video.dir/video.cpp.o: /Users/yaohua/c_workspace/video_learn/vi
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_seek_set.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/gethostuuid.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
 
@@ -815,6 +837,8 @@ video/CMakeFiles/video.dir/video.cpp.o: /Users/yaohua/c_workspace/video_learn/vi
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/_types/_nlink_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/libkern/arm/OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/sys/select.h:
 
 /usr/local/ffmpeg/include/libavdevice/version.h:
 

@@ -8,9 +8,14 @@
 #include <iostream>
 #include "video.h"
 
-TEST(VideoTestSuite, TCP_CLIENT) {
+TEST(VideoTestSuite, FMTDEFUALT) {
 
-    video video;
-    video.haha();
+    video::video video;
+    video.fmtDefault("/Users/yaohua/c_workspace/video_learn/video/uyvy.yuv", 300);
+}
 
+TEST(VideoTestSuite, FMTNV12) {
+
+    video::video video;
+    video.fmtNv12("/Users/yaohua/c_workspace/video_learn/video/nv12.yuv", 300);
 }
