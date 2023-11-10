@@ -369,7 +369,7 @@ namespace audio {
 
             memcpy((void *) avFrame->data[0], (void *) swrConvertData.dst_data[0], swrConvertData.dst_linesize);
             ret = avcodec_send_frame(codec_ctx, avFrame);
-            while (ret) {
+            while (ret >= 0) {
                 //获取编码后的音频数据
                 ret = avcodec_receive_packet(codec_ctx, newpkt);
                 if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
