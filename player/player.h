@@ -1,6 +1,4 @@
-//
-// Created by 张耀华 on 2023/11/10.
-//
+
 
 #ifndef VIDEO_LEARN_PLAYER_H
 #define VIDEO_LEARN_PLAYER_H
@@ -23,7 +21,7 @@ extern "C" { //C++中特殊处理
 #include <cstring>
 
 namespace player {
-    class player {
+    class player_test {
 
 
     };
