@@ -315,7 +315,7 @@ namespace audio {
         codec_ctx->profile = FF_PROFILE_AAC_HE_V2; //阅读 ffmpeg 代码
         //打开编码器
         if (avcodec_open2(codec_ctx, avCodec, nullptr) < 0) {
-            printf("open avcodec_open2 failed \n");
+            printf("open acc avcodec_open2 failed \n");
             return;
         }
         AVFrame *avFrame = av_frame_alloc();
@@ -369,10 +369,11 @@ namespace audio {
 
             memcpy((void *) avFrame->data[0], (void *) swrConvertData.dst_data[0], swrConvertData.dst_linesize);
             ret = avcodec_send_frame(codec_ctx, avFrame);
-            while (ret > 0) {
+            while (ret) {
                 //获取编码后的音频数据
                 ret = avcodec_receive_packet(codec_ctx, newpkt);
                 if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+                    printf(" encoding audio avcodec_receive_packet %d\n", ret);
                     return;
                 } else if (ret < 0) {
                     printf("Error, encoding audio frame\n");

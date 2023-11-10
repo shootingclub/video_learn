@@ -28,6 +28,18 @@ add_subdirectory(audio)
 add_subdirectory(test)
 add_subdirectory(examples)
 
+include_directories(/usr/local/ffmpeg/include)
+link_directories(/usr/local/ffmpeg/lib)
+
+target_link_libraries(video_learn
+        avcodec
+        avdevice
+        avfilter
+        avformat
+        avutil
+        swresample
+        swscale
+)
 
 
 

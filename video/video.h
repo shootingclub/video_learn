@@ -34,7 +34,9 @@ namespace video {
     public:
         void fmtDefault(const char *file_name, int record_time);
 
-        void fmtNv12(const char *file_name, int record_time);
+        void fmtNV12(const char *file_name, int record_time);
+
+        void fmtYUV420(const char *file_name, int record_time);
 
         void fmtH264(const char *file_name, int record_time);
     };
