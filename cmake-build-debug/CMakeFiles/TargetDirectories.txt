@@ -56,3 +56,10 @@
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/examples/CMakeFiles/install.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/examples/CMakeFiles/install/local.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/examples/CMakeFiles/install/strip.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/player.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/edit_cache.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/rebuild_cache.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/list_install_components.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install/local.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install/strip.dir

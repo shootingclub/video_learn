@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/yaohua/c_workspace/video_learn/test/audio_test.cpp" "test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o.d"
+  "/Users/yaohua/c_workspace/video_learn/test/player.cpp" "test/CMakeFiles/Google_Tests_run.dir/player.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/player.cpp.o.d"
   "/Users/yaohua/c_workspace/video_learn/test/video_test.cpp" "test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o.d"
   )
 

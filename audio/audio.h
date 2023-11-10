@@ -1,6 +1,4 @@
-//
-// Created by 张耀华 on 2023/11/7.
-//
+
 
 #ifndef VIDEO_LEARN_AUDIO_H
 #define VIDEO_LEARN_AUDIO_H

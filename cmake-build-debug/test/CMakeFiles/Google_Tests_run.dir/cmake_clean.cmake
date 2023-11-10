@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o"
   "CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o.d"
+  "CMakeFiles/Google_Tests_run.dir/player.cpp.o"
+  "CMakeFiles/Google_Tests_run.dir/player.cpp.o.d"
   "CMakeFiles/Google_Tests_run.dir/video_test.cpp.o"
   "CMakeFiles/Google_Tests_run.dir/video_test.cpp.o.d"
   "Google_Tests_run"
