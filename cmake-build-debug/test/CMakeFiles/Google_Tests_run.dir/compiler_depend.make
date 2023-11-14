@@ -330,7 +330,7 @@ test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o: /Users/yaohua/c_workspace
   /usr/local/ffmpeg/include/libavutil/channel_layout.h \
   /usr/local/ffmpeg/include/libswresample/version.h
 
-test/CMakeFiles/Google_Tests_run.dir/player.cpp.o: /Users/yaohua/c_workspace/video_learn/test/player.cpp \
+test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.o: /Users/yaohua/c_workspace/video_learn/test/player_test.cpp \
   /Users/yaohua/c_workspace/video_learn/test/lib/googletest/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/cstddef \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/__config \
@@ -991,7 +991,7 @@ test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o: /Users/yaohua/c_workspace
 
 /Users/yaohua/c_workspace/video_learn/player/player.h:
 
-/Users/yaohua/c_workspace/video_learn/test/player.cpp:
+/Users/yaohua/c_workspace/video_learn/test/player_test.cpp:
 
 /usr/local/ffmpeg/include/libavutil/channel_layout.h:
 

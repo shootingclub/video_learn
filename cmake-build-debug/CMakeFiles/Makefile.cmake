@@ -73,6 +73,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "video/CMakeFiles/CMakeDirectoryInformation.cmake"
   "audio/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "player/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/lib/googletest/generated/gmock.pc"
@@ -84,7 +85,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "test/lib/googletest/generated/gtest_main.pc"
   "test/lib/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "player/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -93,11 +93,11 @@ set(CMAKE_DEPEND_INFO_FILES
   "video/CMakeFiles/video.dir/DependInfo.cmake"
   "audio/CMakeFiles/a.dir/DependInfo.cmake"
   "audio/CMakeFiles/audio.dir/DependInfo.cmake"
+  "player/CMakeFiles/player.dir/DependInfo.cmake"
   "test/CMakeFiles/Google_Tests_run.dir/DependInfo.cmake"
   "test/lib/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "test/lib/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "test/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "test/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "examples/CMakeFiles/example.dir/DependInfo.cmake"
-  "player/CMakeFiles/player.dir/DependInfo.cmake"
   )

@@ -18,8 +18,6 @@ link_directories(${FFMPEG_DIR}/lib/) # 链接库路径
 #)
 set(SOURCE_FILES
         main.cpp
-        player/player.cpp
-        player/player.h
 )
 
 add_executable(video_learn ${SOURCE_FILES})
@@ -27,9 +25,9 @@ add_executable(video_learn ${SOURCE_FILES})
 
 add_subdirectory(video)
 add_subdirectory(audio)
+add_subdirectory(player)
 add_subdirectory(test)
 add_subdirectory(examples)
-add_subdirectory(player)
 
 include_directories(/usr/local/ffmpeg/include)
 link_directories(/usr/local/ffmpeg/lib)

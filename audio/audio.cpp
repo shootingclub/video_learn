@@ -4,6 +4,38 @@
 
 namespace audio {
 
+    void encode(AVCodecContext *enc_ctx,
+                AVFrame *frame,
+                AVPacket *newpkt,
+                FILE *outfile) {
+
+        int ret;
+        //送原始数据给编码器进行编码
+        ret = avcodec_send_frame(enc_ctx, frame);
+        if (ret < 0) {
+            printf("Error, Failed to send a frame for enconding!\n");
+            exit(1);
+        }
+
+        //从编码器获取编码好的数据
+        while (ret >= 0) {
+            ret = avcodec_receive_packet(enc_ctx, newpkt);
+            //如果编码器数据不足时会返回  EAGAIN,或者到数据尾时会返回 AVERROR_EOF
+            if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+                printf(" encoding video avcodec_receive_packet %d\n", ret);
+                return;
+            } else if (ret < 0) {
+                printf("Error, Failed to encode!\n");
+                exit(1);
+            }
+
+            fwrite(newpkt->data, newpkt->size, 1, outfile);
+            printf("write success aac!\n");
+            fflush(outfile);
+            av_packet_unref(newpkt);
+        }
+    }
+
     bool has_pcm_suffix(const char *filename) {
         const int len = strlen(filename);
         return (len >= 4) && (strcmp(filename + len - 4, ".pcm") == 0);
@@ -136,7 +168,8 @@ namespace audio {
             if (ret < 0) {
                 break;
             }
-            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data, record_time);
+            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data,
+                   record_time);
 
             // 将数据以二进制形式写入文件, 1:代表每次写几个包
             fwrite(pkt.data, pkt.size, 1, out_file);
@@ -221,7 +254,8 @@ namespace audio {
             if (ret < 0) {
                 break;
             }
-            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data, record_time);
+            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data,
+                   record_time);
 
             //进行内存拷贝（按字节拷贝）
             memcpy((void *) swrConvertData.src_data[0], (void *) pkt.data, pkt.size);
@@ -354,10 +388,12 @@ namespace audio {
             if (ret < 0) {
                 break;
             }
-            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data, record_time);
+            av_log(nullptr, AV_LOG_INFO, "pkt size is %d (%p) record_time %d \n", pkt.size, pkt.data,
+                   record_time);
 
             //进行内存拷贝（按字节拷贝）
             memcpy((void *) swrConvertData.src_data[0], (void *) pkt.data, pkt.size);
+
             //重采样
             swr_convert(swrCtx,                     //重采样的上下文
                         swrConvertData.dst_data,                    //输出结果缓冲区
@@ -366,25 +402,18 @@ namespace audio {
                         512);                                   //输入单个通道的采样数
 
             memcpy((void *) avFrame->data[0], (void *) swrConvertData.dst_data[0], swrConvertData.dst_linesize);
-            ret = avcodec_send_frame(codec_ctx, avFrame);
-            while (ret >= 0) {
-                //获取编码后的音频数据
-                ret = avcodec_receive_packet(codec_ctx, newpkt);
-                if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
-                    printf(" encoding audio avcodec_receive_packet %d\n", ret);
-                    return;
-                } else if (ret < 0) {
-                    printf("Error, encoding audio frame\n");
-                    exit(-1);
-                }
-                // 将读取到的声音二进制写进去文件
-                fwrite(newpkt->data, 1, newpkt->size, out_file);
-                fflush(out_file);
-            }
 
+            //encode
+            encode(codec_ctx, avFrame, newpkt, out_file);
+            // 释放pkg指针
             av_packet_unref(&pkt);
             --record_time;
         }
+
+        //强制将编码器缓冲区中的音频进行编码输出
+        encode(codec_ctx, nullptr, newpkt, out_file);
+        //关闭文件流
+        fclose(out_file);
 
         //释放 AVFrame 和 AVPacket
         av_frame_free(&avFrame);

@@ -214,6 +214,19 @@ audio/fast:
 .PHONY : audio/fast
 
 #=============================================================================
+# Target rules for targets named player
+
+# Build rule for target.
+player: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 player
+.PHONY : player
+
+# fast build rule for target.
+player/fast:
+	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/build
+.PHONY : player/fast
+
+#=============================================================================
 # Target rules for targets named Google_Tests_run
 
 # Build rule for target.
@@ -291,19 +304,6 @@ example/fast:
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/example.dir/build.make examples/CMakeFiles/example.dir/build
 .PHONY : example/fast
 
-#=============================================================================
-# Target rules for targets named player
-
-# Build rule for target.
-player: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 player
-.PHONY : player
-
-# fast build rule for target.
-player/fast:
-	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/build
-.PHONY : player/fast
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -327,30 +327,6 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-player/player.o: player/player.cpp.o
-.PHONY : player/player.o
-
-# target to build an object file
-player/player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/player/player.cpp.o
-.PHONY : player/player.cpp.o
-
-player/player.i: player/player.cpp.i
-.PHONY : player/player.i
-
-# target to preprocess a source file
-player/player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/player/player.cpp.i
-.PHONY : player/player.cpp.i
-
-player/player.s: player/player.cpp.s
-.PHONY : player/player.s
-
-# target to generate assembly for a file
-player/player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/player/player.cpp.s
-.PHONY : player/player.cpp.s
 
 # Help Target
 help:
@@ -378,9 +354,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... player/player.o"
-	@echo "... player/player.i"
-	@echo "... player/player.s"
 .PHONY : help
 
 

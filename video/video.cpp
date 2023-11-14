@@ -92,13 +92,6 @@ namespace video {
                 FILE *outfile) {
 
         int ret;
-
-//        if (frame == nullptr) {
-//            printf("error send frame to encoder \n");
-//        } else {
-//            printf("send frame to encoder, pts=%lld", frame->pts);
-//        }
-
         //送原始数据给编码器进行编码
         ret = avcodec_send_frame(enc_ctx, frame);
         if (ret < 0) {

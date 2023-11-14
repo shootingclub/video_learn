@@ -66,26 +66,26 @@ CMAKE_BINARY_DIR = /Users/yaohua/c_workspace/video_learn/cmake-build-debug
 all: CMakeFiles/video_learn.dir/all
 all: video/all
 all: audio/all
+all: player/all
 all: test/all
 all: examples/all
-all: player/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: video/preinstall
 preinstall: audio/preinstall
+preinstall: player/preinstall
 preinstall: test/preinstall
 preinstall: examples/preinstall
-preinstall: player/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/video_learn.dir/clean
 clean: video/clean
 clean: audio/clean
+clean: player/clean
 clean: test/clean
 clean: examples/clean
-clean: player/clean
 .PHONY : clean
 
 #=============================================================================
@@ -225,12 +225,12 @@ video/clean: video/CMakeFiles/video.dir/clean
 CMakeFiles/video_learn.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=45,46,47 "Built target video_learn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=45,46 "Built target video_learn"
 .PHONY : CMakeFiles/video_learn.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/video_learn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/video_learn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/video_learn.dir/rule
@@ -323,14 +323,40 @@ audio/CMakeFiles/audio.dir/clean:
 .PHONY : audio/CMakeFiles/audio.dir/clean
 
 #=============================================================================
+# Target rules for target player/CMakeFiles/player.dir
+
+# All Build rule for target.
+player/CMakeFiles/player.dir/all:
+	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/depend
+	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=41,42 "Built target player"
+.PHONY : player/CMakeFiles/player.dir/all
+
+# Build rule for subdir invocation for target.
+player/CMakeFiles/player.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 player/CMakeFiles/player.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 0
+.PHONY : player/CMakeFiles/player.dir/rule
+
+# Convenience name for target.
+player: player/CMakeFiles/player.dir/rule
+.PHONY : player
+
+# clean rule for target.
+player/CMakeFiles/player.dir/clean:
+	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/clean
+.PHONY : player/CMakeFiles/player.dir/clean
+
+#=============================================================================
 # Target rules for target test/CMakeFiles/Google_Tests_run.dir
 
 # All Build rule for target.
 test/CMakeFiles/Google_Tests_run.dir/all: video/CMakeFiles/video.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: audio/CMakeFiles/audio.dir/all
+test/CMakeFiles/Google_Tests_run.dir/all: player/CMakeFiles/player.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: test/lib/googletest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: test/lib/googletest/CMakeFiles/gtest_main.dir/all
-test/CMakeFiles/Google_Tests_run.dir/all: player/CMakeFiles/player.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target Google_Tests_run"
@@ -482,32 +508,6 @@ example: examples/CMakeFiles/example.dir/rule
 examples/CMakeFiles/example.dir/clean:
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/example.dir/build.make examples/CMakeFiles/example.dir/clean
 .PHONY : examples/CMakeFiles/example.dir/clean
-
-#=============================================================================
-# Target rules for target player/CMakeFiles/player.dir
-
-# All Build rule for target.
-player/CMakeFiles/player.dir/all:
-	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/depend
-	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=41,42 "Built target player"
-.PHONY : player/CMakeFiles/player.dir/all
-
-# Build rule for subdir invocation for target.
-player/CMakeFiles/player.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 player/CMakeFiles/player.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 0
-.PHONY : player/CMakeFiles/player.dir/rule
-
-# Convenience name for target.
-player: player/CMakeFiles/player.dir/rule
-.PHONY : player
-
-# clean rule for target.
-player/CMakeFiles/player.dir/clean:
-	$(MAKE) $(MAKESILENT) -f player/CMakeFiles/player.dir/build.make player/CMakeFiles/player.dir/clean
-.PHONY : player/CMakeFiles/player.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

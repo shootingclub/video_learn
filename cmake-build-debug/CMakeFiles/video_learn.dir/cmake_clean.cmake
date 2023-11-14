@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/video_learn.dir/main.cpp.o"
   "CMakeFiles/video_learn.dir/main.cpp.o.d"
-  "CMakeFiles/video_learn.dir/player/player.cpp.o"
-  "CMakeFiles/video_learn.dir/player/player.cpp.o.d"
   "video_learn"
   "video_learn.pdb"
 )

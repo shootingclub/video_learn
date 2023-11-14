@@ -199,29 +199,29 @@ audio_test.cpp.s:
 	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.s
 .PHONY : audio_test.cpp.s
 
-player.o: player.cpp.o
-.PHONY : player.o
+player_test.o: player_test.cpp.o
+.PHONY : player_test.o
 
 # target to build an object file
-player.cpp.o:
-	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player.cpp.o
-.PHONY : player.cpp.o
+player_test.cpp.o:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.o
+.PHONY : player_test.cpp.o
 
-player.i: player.cpp.i
-.PHONY : player.i
+player_test.i: player_test.cpp.i
+.PHONY : player_test.i
 
 # target to preprocess a source file
-player.cpp.i:
-	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player.cpp.i
-.PHONY : player.cpp.i
+player_test.cpp.i:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.i
+.PHONY : player_test.cpp.i
 
-player.s: player.cpp.s
-.PHONY : player.s
+player_test.s: player_test.cpp.s
+.PHONY : player_test.s
 
 # target to generate assembly for a file
-player.cpp.s:
-	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player.cpp.s
-.PHONY : player.cpp.s
+player_test.cpp.s:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.s
+.PHONY : player_test.cpp.s
 
 video_test.o: video_test.cpp.o
 .PHONY : video_test.o
@@ -263,9 +263,9 @@ help:
 	@echo "... audio_test.o"
 	@echo "... audio_test.i"
 	@echo "... audio_test.s"
-	@echo "... player.o"
-	@echo "... player.i"
-	@echo "... player.s"
+	@echo "... player_test.o"
+	@echo "... player_test.i"
+	@echo "... player_test.s"
 	@echo "... video_test.o"
 	@echo "... video_test.i"
 	@echo "... video_test.s"
