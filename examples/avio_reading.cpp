@@ -90,7 +90,7 @@ int main(int argc, char *argv[]) {
         goto end;
     }
 
-    avio_ctx_buffer = av_malloc(avio_ctx_buffer_size);
+    avio_ctx_buffer = static_cast<uint8_t *>(av_malloc(avio_ctx_buffer_size));
     if (!avio_ctx_buffer) {
         ret = AVERROR(ENOMEM);
         goto end;

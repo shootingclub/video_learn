@@ -9,7 +9,7 @@ namespace audio {
                 AVPacket *newpkt,
                 FILE *outfile) {
 
-        int ret;
+        int ret, data_size;
         //送原始数据给编码器进行编码
         ret = avcodec_send_frame(enc_ctx, frame);
         if (ret < 0) {
@@ -29,9 +29,10 @@ namespace audio {
                 exit(1);
             }
 
+
             fwrite(newpkt->data, newpkt->size, 1, outfile);
+//            fflush(outfile);
             printf("write success aac!\n");
-            fflush(outfile);
             av_packet_unref(newpkt);
         }
     }
