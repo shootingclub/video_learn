@@ -49,7 +49,7 @@ namespace player {
 
         void cut_base(char *srcFile, char *dstFile, double startTime, double endTime);
 
-        void avmerge_base(char *srcFile1, char *srcFile2, char *dstFile);
+        void av_merge_base(char *srcFile1, char *srcFile2, char *dstFile);
 
         void encode_video(char *codecName, char *dstFile);
 

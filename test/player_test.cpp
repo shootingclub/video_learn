@@ -31,7 +31,7 @@ TEST(PlayerTestSuite, MEREGE_BASE_INFO) {
     //dst: h264 mov flv
     player::player player;
 
-    player.avmerge_base("/Users/yaohua/c_workspace/video_learn/player/video.mp4",
+    player.av_merge_base("/Users/yaohua/c_workspace/video_learn/player/video.mp4",
                         "/Users/yaohua/c_workspace/video_learn/player/video.mp4",
                         "/Users/yaohua/c_workspace/video_learn/player/out_video.mp4");
 }
