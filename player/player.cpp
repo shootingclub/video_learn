@@ -770,24 +770,24 @@ namespace player {
         }
 
 
-//        av_log(nullptr, AV_LOG_INFO, "开始音频抽取\n");
-//        // 8.从多媒体文件汇总读取到音频数据到目的文件
-//        while (av_read_frame(audioFmtCtx, &pkt) >= 0) {
-//            //读取到的流的index 是我们想要读取的idx
-//            if (pkt.stream_index == audioStreamId) {
-//                //将读取到的音频包进行设置,然后写入目标输出文件的上下文中
-//                pkt.pts = av_rescale_q_rnd(pkt.pts,
-//                                           audioInStream->time_base,
-//                                           audioOutStream->time_base,
-//                                           (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
-//                pkt.dts = pkt.pts;
-//                pkt.duration = av_rescale_q(pkt.duration, audioInStream->time_base, audioOutStream->time_base);
-//                pkt.stream_index = audioStreamId;
-//                pkt.pos = -1;
-//                av_interleaved_write_frame(mergeFmtCtx, &pkt);
-//                av_packet_unref(&pkt);
-//            }
-//        }
+        av_log(nullptr, AV_LOG_INFO, "开始音频抽取\n");
+        // 8.从多媒体文件汇总读取到音频数据到目的文件
+        while (av_read_frame(audioFmtCtx, &pkt) >= 0) {
+            //读取到的流的index 是我们想要读取的idx
+            if (pkt.stream_index == audioStreamId) {
+                //将读取到的音频包进行设置,然后写入目标输出文件的上下文中
+                pkt.pts = av_rescale_q_rnd(pkt.pts,
+                                           audioInStream->time_base,
+                                           audioOutStream->time_base,
+                                           (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+                pkt.dts = pkt.pts;
+                pkt.duration = av_rescale_q(pkt.duration, audioInStream->time_base, audioOutStream->time_base);
+                pkt.stream_index = audioStreamId;
+                pkt.pos = -1;
+                av_interleaved_write_frame(mergeFmtCtx, &pkt);
+                av_packet_unref(&pkt);
+            }
+        }
 
         // 9.写多媒体文件到文件中
         av_write_trailer(mergeFmtCtx);
