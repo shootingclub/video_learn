@@ -99,6 +99,8 @@ namespace player {
     void player::media_info(char *filename) {
         int err_code;
         char errors[1024];
+        const char *video_type, *audio_type;
+
 
         AVFormatContext *fmt_ctx = NULL;
 
@@ -117,6 +119,29 @@ namespace player {
             fprintf(stderr, "Could not open source file %s, %d(%s)\n", filename, err_code, errors);
             exit(1);
         }
+
+//        try {
+//            // 可能抛出异常的代码
+//
+//        } catch (const std::runtime_error &e) {
+//            // 捕获并处理运行时错误
+//            std::cerr << "捕获到运行时错误： " << e.what() << std::endl;
+//        }
+//        for (int i = 0; i < sizeof(fmt_ctx->streams); ++i) {
+//            if (fmt_ctx->streams[i]) {
+//                // 4. find  the video decoder and fetch video data
+//                const AVCodec *codec = avcodec_find_decoder(fmt_ctx->streams[i]->codecpar->codec_id);
+//                if (codec) {
+//                    // video_type = video_codec->name; //Better
+//                    video_type = avcodec_get_name(codec->id); // Debug test
+//                    std::cout << "stream number is: " << i << " codec is: " << video_type << std::endl;
+//                } else {
+//                    std::cerr << "Find video codec failed !" << std::endl;
+//                }
+//            }
+//        }
+
+
 
         /* dump input information to stderr */
         av_dump_format(fmt_ctx, 0, filename, 0);
@@ -168,8 +193,8 @@ namespace player {
             exit(-1);
         }
         //首先找到输入文件流,打印输入文件信息（音频、视频）
-        std::cout << "打印输入媒体信息" << std::endl;
-        media_info(srcAudioFile);
+//        std::cout << "打印输入媒体信息" << std::endl;
+//        media_info(srcAudioFile);
         // 3.从多媒体文件中找到音频
         // wanted_stream_nb:想查找的流id，如果是-1那么返回找到的第一个音频流并发索引序号返回
         idx = av_find_best_stream(pFmtCtx, AVMEDIA_TYPE_AUDIO, -1, -1, nullptr, 0);
@@ -637,12 +662,143 @@ namespace player {
 
     }
 
-    void player::avmerge_base(char *srcFile1, char *srcFile2, char *dstFile) {
-        //抽取srcFile1音频
+    void player::avmerge_base(char *srcAudioFile, char *srcVideoFile, char *dstFile) {
+        AVFormatContext *audioFmtCtx = nullptr;
+        AVStream *audioInStream, *audioOutStream;
+
+        AVFormatContext *videoFmtCtx = nullptr;
+        AVStream *videoInStream, *videoOutStream;
+
+        AVFormatContext *mergeFmtCtx;
+        const AVOutputFormat *mergeOutPutFmt;
 
 
-        //抽取srcFile2视频
+        AVPacket pkt;
 
+        int ret, audioStreamId, videoStreamId;
+        av_log_set_level(AV_LOG_DEBUG);
+
+        //1. 抽取音频
+        ret = avformat_open_input(&audioFmtCtx, srcAudioFile, nullptr, nullptr);
+        if (ret < 0) {
+            av_log(nullptr, AV_LOG_ERROR, "%s \n", av_err2str(ret));
+            exit(-1);
+        }
+        // 查找音频流
+        audioStreamId = av_find_best_stream(audioFmtCtx, AVMEDIA_TYPE_AUDIO, -1, -1, nullptr, 0);
+        if (audioStreamId < 0) {
+            av_log(audioFmtCtx, AV_LOG_ERROR, "does not include audio stream  \n");
+        }
+
+        //2. 抽取视频
+        ret = avformat_open_input(&videoFmtCtx, srcVideoFile, nullptr, nullptr);
+        if (ret < 0) {
+            av_log(nullptr, AV_LOG_ERROR, "%s \n", av_err2str(ret));
+            exit(-1);
+        }
+        // 查找视频流
+        videoStreamId = av_find_best_stream(videoFmtCtx, AVMEDIA_TYPE_VIDEO, -1, -1, nullptr, 0);
+        if (videoStreamId < 0) {
+            av_log(audioFmtCtx, AV_LOG_ERROR, "does not include audio stream  \n");
+        }
+
+        // 3.打开dstFile目的文件上下文,设置一些参数
+        mergeFmtCtx = avformat_alloc_context();
+        if (!mergeFmtCtx) {
+            av_log(nullptr, AV_LOG_ERROR, "no memory \n");
+            goto _ERROR;
+        }
+        mergeOutPutFmt = av_guess_format(nullptr, dstFile, nullptr);
+        //将输出目标文件的信息 设置给了输出上下文
+        mergeFmtCtx->oformat = mergeOutPutFmt;
+
+
+        // 为目的文件，创建一个新的视频流
+        videoOutStream = avformat_new_stream(mergeFmtCtx, nullptr);
+        // 为新的输出视频流设置参数
+        videoInStream = videoFmtCtx->streams[videoStreamId];
+        //假设输入流的音频参数（编解码器） 与输出音频流的音频参数（编解码器）一致，那么直接copy
+        avcodec_parameters_copy(videoOutStream->codecpar, videoInStream->codecpar);
+        //根据多媒体文件自动适配编解码器
+        videoOutStream->codecpar->codec_tag = 0;
+
+
+        // 为目的文件，创建一个新的音频流
+        audioOutStream = avformat_new_stream(mergeFmtCtx, nullptr);
+        // 为新的输出音频流设置参数
+        audioInStream = audioFmtCtx->streams[audioStreamId];
+        // 假设输入流的音频参数（编解码器） 与输出音频流的音频参数（编解码器）一致，那么直接copy
+        avcodec_parameters_copy(audioOutStream->codecpar, audioInStream->codecpar);
+        // 根据多媒体文件自动适配编解码器
+        audioOutStream->codecpar->codec_tag = 0;
+
+
+        //绑定（输出上下文与我们的目标文件绑定在一起）
+        ret = avio_open2(&mergeFmtCtx->pb, dstFile, AVIO_FLAG_WRITE, nullptr, nullptr);
+        if (ret < 0) {
+            av_log(mergeFmtCtx, AV_LOG_ERROR, "%s", av_err2str(ret));
+            goto _ERROR;
+        }
+
+        // 4.写多媒体文件头到目的文件
+        ret = avformat_write_header(mergeFmtCtx, nullptr);
+        if (ret < 0) {
+            av_log(mergeFmtCtx, AV_LOG_ERROR, "%s", av_err2str(ret));
+            goto _ERROR;
+        }
+
+        av_log(nullptr, AV_LOG_INFO, "开始视频抽取\n");
+        // 5.从多媒体文件汇总读取到音频数据到目的文件
+        while (av_read_frame(videoFmtCtx, &pkt) >= 0) {
+            //读取到的流的index 是我们想要读取的idx
+            if (pkt.stream_index == videoStreamId) {
+                //将读取到的音频包进行设置,然后写入目标输出文件的上下文中
+                pkt.pts = av_rescale_q_rnd(pkt.pts,
+                                           videoInStream->time_base,
+                                           videoOutStream->time_base,
+                                           (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+                pkt.dts = av_rescale_q_rnd(pkt.dts,
+                                           videoInStream->time_base,
+                                           videoOutStream->time_base,
+                                           (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));;
+                pkt.duration = av_rescale_q(pkt.duration, videoInStream->time_base, videoOutStream->time_base);
+                pkt.stream_index = videoStreamId;
+                pkt.pos = -1;
+                av_interleaved_write_frame(mergeFmtCtx, &pkt);
+                av_packet_unref(&pkt);
+            }
+        }
+
+
+        av_log(nullptr, AV_LOG_INFO, "开始音频抽取\n");
+        // 8.从多媒体文件汇总读取到音频数据到目的文件
+        while (av_read_frame(audioFmtCtx, &pkt) >= 0) {
+            //读取到的流的index 是我们想要读取的idx
+            if (pkt.stream_index == audioStreamId) {
+                //将读取到的音频包进行设置,然后写入目标输出文件的上下文中
+                pkt.pts = av_rescale_q_rnd(pkt.pts,
+                                           audioInStream->time_base,
+                                           audioOutStream->time_base,
+                                           (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+                pkt.dts = pkt.pts;
+                pkt.duration = av_rescale_q(pkt.duration, audioInStream->time_base, audioOutStream->time_base);
+                pkt.stream_index = audioStreamId;
+                pkt.pos = -1;
+                av_interleaved_write_frame(mergeFmtCtx, &pkt);
+                av_packet_unref(&pkt);
+            }
+        }
+
+        // 9.写多媒体文件到文件中
+        av_write_trailer(mergeFmtCtx);
+
+        _ERROR:
+        if (audioFmtCtx) {
+            avformat_close_input(&audioFmtCtx);
+            audioFmtCtx = nullptr;
+        }
+        printf(" error finish");
+        exit(-1);
         //组成新的文件
     }
 

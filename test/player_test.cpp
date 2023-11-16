@@ -5,6 +5,10 @@
 TEST(PlayerTestSuite, MEDIA_INFO) {
     player::player player;
     player.media_info("/Users/yaohua/c_workspace/video_learn/player/video.mp4");
+
+//    player.media_info("/Users/yaohua/Music/周杰伦 - 告白气球.flac");
+
+
 //    std::cout << "---------" << std::endl;
 //    player.media_info("/Users/yaohua/c_workspace/video_learn/player/out_video.aac");
 }
@@ -20,7 +24,16 @@ TEST(PlayerTestSuite, EXTRACT_VIDEO_BASE_INFO) {
     //dst: h264 mov flv
     player::player player;
     player.extract_video_base("/Users/yaohua/c_workspace/video_learn/player/video.mp4",
-                              "/Users/yaohua/c_workspace/video_learn/player/out_video.flv");
+                              "/Users/yaohua/c_workspace/video_learn/player/out_video.mp4");
+}
+
+TEST(PlayerTestSuite, MEREGE_BASE_INFO) {
+    //dst: h264 mov flv
+    player::player player;
+
+    player.avmerge_base("/Users/yaohua/c_workspace/video_learn/player/video.mp4",
+                        "/Users/yaohua/c_workspace/video_learn/player/video.mp4",
+                        "/Users/yaohua/c_workspace/video_learn/player/out_video.mp4");
 }
 
 TEST(PlayerTestSuite, REMUX_BASE_INFO) {
@@ -49,5 +62,7 @@ TEST(PlayerTestSuite, ENCODE_AUDIO_INFO) {
     player::player player;
     player.encode_audio("libfdk_aac", "/Users/yaohua/c_workspace/video_learn/player/audio_encode_aac.aac");
 }
+
+
 
 
