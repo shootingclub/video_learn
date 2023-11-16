@@ -45,11 +45,11 @@ namespace player {
 
         void extract_video_base(char *srcFile, char *dstFile);
 
+        void av_merge_base(char *srcFile1, char *srcFile2, char *dstFile);
+
         void remux_base(char *srcFile, char *dstFile);
 
         void cut_base(char *srcFile, char *dstFile, double startTime, double endTime);
-
-        void av_merge_base(char *srcFile1, char *srcFile2, char *dstFile);
 
         void encode_video(char *codecName, char *dstFile);
 
