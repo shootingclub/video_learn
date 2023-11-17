@@ -1,14 +1,39 @@
-//
-// Created by 张耀华 on 2023/11/17.
-//
 
+
+#define __STDC_CONSTANT_MACROS
 #ifndef VIDEO_LEARN_PUSHSTREAM_H
 #define VIDEO_LEARN_PUSHSTREAM_H
 
+#include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <unistd.h>
 
-class pushStream {
+extern "C" {
+#include "librtmp/rtmp.h"
+}
 
-};
+
+namespace stream {
+    class pushStream {
+
+    private:
+        RTMPPacket *alloc_packet();
+
+        int read_data(FILE *fp, RTMPPacket **packet);
+
+        FILE *open_flv(char *flv_name);
+
+        RTMP *conect_rtmp_server(char *rtmpaddr);
+
+        void send_data(FILE *fp, RTMP *rtmp);
+
+    public:
+        void publish_stream(char *flv, char *rtmpaddr);
+    };
+}
 
 
 #endif //VIDEO_LEARN_PUSHSTREAM_H

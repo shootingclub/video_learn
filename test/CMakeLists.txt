@@ -7,7 +7,6 @@ file(GLOB SRCS *.cpp)
 # adding the Google_Tests_run target
 add_executable(Google_Tests_run
         ${SRCS}
-
 )
 target_link_libraries(Google_Tests_run
         audio

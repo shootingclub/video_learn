@@ -97,10 +97,24 @@ test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/player_test.cpp.s"
 	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yaohua/c_workspace/video_learn/test/player_test.cpp -o CMakeFiles/Google_Tests_run.dir/player_test.cpp.s
 
+test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o: test/CMakeFiles/Google_Tests_run.dir/flags.make
+test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o: /Users/yaohua/c_workspace/video_learn/test/push_stream.cpp
+test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o: test/CMakeFiles/Google_Tests_run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o"
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o -MF CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o.d -o CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o -c /Users/yaohua/c_workspace/video_learn/test/push_stream.cpp
+
+test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Google_Tests_run.dir/push_stream.cpp.i"
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yaohua/c_workspace/video_learn/test/push_stream.cpp > CMakeFiles/Google_Tests_run.dir/push_stream.cpp.i
+
+test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/push_stream.cpp.s"
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yaohua/c_workspace/video_learn/test/push_stream.cpp -o CMakeFiles/Google_Tests_run.dir/push_stream.cpp.s
+
 test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o: test/CMakeFiles/Google_Tests_run.dir/flags.make
 test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o: /Users/yaohua/c_workspace/video_learn/test/video_test.cpp
 test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o: test/CMakeFiles/Google_Tests_run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o"
 	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o -MF CMakeFiles/Google_Tests_run.dir/video_test.cpp.o.d -o CMakeFiles/Google_Tests_run.dir/video_test.cpp.o -c /Users/yaohua/c_workspace/video_learn/test/video_test.cpp
 
 test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.i: cmake_force
@@ -115,6 +129,7 @@ test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.s: cmake_force
 Google_Tests_run_OBJECTS = \
 "CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o" \
 "CMakeFiles/Google_Tests_run.dir/player_test.cpp.o" \
+"CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o" \
 "CMakeFiles/Google_Tests_run.dir/video_test.cpp.o"
 
 # External object files for target Google_Tests_run
@@ -122,6 +137,7 @@ Google_Tests_run_EXTERNAL_OBJECTS =
 
 test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o
 test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.o
+test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o
 test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o
 test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/build.make
 test/Google_Tests_run: audio/libaudio.a
@@ -132,7 +148,7 @@ test/Google_Tests_run: lib/libgtest.a
 test/Google_Tests_run: lib/libgtest_main.a
 test/Google_Tests_run: lib/libgtest.a
 test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Google_Tests_run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Google_Tests_run"
 	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Google_Tests_run.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

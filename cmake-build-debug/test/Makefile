@@ -223,6 +223,30 @@ player_test.cpp.s:
 	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.s
 .PHONY : player_test.cpp.s
 
+push_stream.o: push_stream.cpp.o
+.PHONY : push_stream.o
+
+# target to build an object file
+push_stream.cpp.o:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o
+.PHONY : push_stream.cpp.o
+
+push_stream.i: push_stream.cpp.i
+.PHONY : push_stream.i
+
+# target to preprocess a source file
+push_stream.cpp.i:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.i
+.PHONY : push_stream.cpp.i
+
+push_stream.s: push_stream.cpp.s
+.PHONY : push_stream.s
+
+# target to generate assembly for a file
+push_stream.cpp.s:
+	cd /Users/yaohua/c_workspace/video_learn/cmake-build-debug && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.s
+.PHONY : push_stream.cpp.s
+
 video_test.o: video_test.cpp.o
 .PHONY : video_test.o
 
@@ -266,6 +290,9 @@ help:
 	@echo "... player_test.o"
 	@echo "... player_test.i"
 	@echo "... player_test.s"
+	@echo "... push_stream.o"
+	@echo "... push_stream.i"
+	@echo "... push_stream.s"
 	@echo "... video_test.o"
 	@echo "... video_test.i"
 	@echo "... video_test.s"

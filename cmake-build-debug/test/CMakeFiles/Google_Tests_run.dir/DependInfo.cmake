@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/yaohua/c_workspace/video_learn/test/audio_test.cpp" "test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/audio_test.cpp.o.d"
   "/Users/yaohua/c_workspace/video_learn/test/player_test.cpp" "test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/player_test.cpp.o.d"
+  "/Users/yaohua/c_workspace/video_learn/test/push_stream.cpp" "test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/push_stream.cpp.o.d"
   "/Users/yaohua/c_workspace/video_learn/test/video_test.cpp" "test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o" "gcc" "test/CMakeFiles/Google_Tests_run.dir/video_test.cpp.o.d"
   )
 
