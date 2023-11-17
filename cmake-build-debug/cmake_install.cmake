@@ -54,6 +54,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/Users/yaohua/c_workspace/video_learn/cmake-build-debug/test/cmake_install.cmake")
 endif()
 

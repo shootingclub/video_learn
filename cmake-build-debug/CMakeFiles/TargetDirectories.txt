@@ -27,6 +27,13 @@
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install/local.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/player/CMakeFiles/install/strip.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/pushStream.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/edit_cache.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/rebuild_cache.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/list_install_components.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/install.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/install/local.dir
+/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream/CMakeFiles/install/strip.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test/CMakeFiles/Google_Tests_run.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test/CMakeFiles/edit_cache.dir
 /Users/yaohua/c_workspace/video_learn/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir

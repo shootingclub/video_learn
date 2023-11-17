@@ -26,6 +26,7 @@ add_executable(video_learn ${SOURCE_FILES})
 add_subdirectory(video)
 add_subdirectory(audio)
 add_subdirectory(player)
+add_subdirectory(pushStream)
 add_subdirectory(test)
 add_subdirectory(examples)
 

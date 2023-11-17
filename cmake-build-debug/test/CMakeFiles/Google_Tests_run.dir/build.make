@@ -127,6 +127,7 @@ test/Google_Tests_run: test/CMakeFiles/Google_Tests_run.dir/build.make
 test/Google_Tests_run: audio/libaudio.a
 test/Google_Tests_run: video/libvideo.a
 test/Google_Tests_run: player/libplayer.a
+test/Google_Tests_run: pushStream/libpushStream.a
 test/Google_Tests_run: lib/libgtest.a
 test/Google_Tests_run: lib/libgtest_main.a
 test/Google_Tests_run: lib/libgtest.a

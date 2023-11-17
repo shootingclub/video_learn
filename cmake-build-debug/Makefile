@@ -227,6 +227,19 @@ player/fast:
 .PHONY : player/fast
 
 #=============================================================================
+# Target rules for targets named pushStream
+
+# Build rule for target.
+pushStream: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pushStream
+.PHONY : pushStream
+
+# fast build rule for target.
+pushStream/fast:
+	$(MAKE) $(MAKESILENT) -f pushStream/CMakeFiles/pushStream.dir/build.make pushStream/CMakeFiles/pushStream.dir/build
+.PHONY : pushStream/fast
+
+#=============================================================================
 # Target rules for targets named Google_Tests_run
 
 # Build rule for target.
@@ -349,6 +362,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... player"
+	@echo "... pushStream"
 	@echo "... video"
 	@echo "... video_learn"
 	@echo "... main.o"

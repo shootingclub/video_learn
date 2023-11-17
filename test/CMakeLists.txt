@@ -13,6 +13,7 @@ target_link_libraries(Google_Tests_run
         audio
         video
         player
+        pushStream
 )
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

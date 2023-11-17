@@ -67,6 +67,7 @@ all: CMakeFiles/video_learn.dir/all
 all: video/all
 all: audio/all
 all: player/all
+all: pushStream/all
 all: test/all
 all: examples/all
 .PHONY : all
@@ -75,6 +76,7 @@ all: examples/all
 preinstall: video/preinstall
 preinstall: audio/preinstall
 preinstall: player/preinstall
+preinstall: pushStream/preinstall
 preinstall: test/preinstall
 preinstall: examples/preinstall
 .PHONY : preinstall
@@ -84,6 +86,7 @@ clean: CMakeFiles/video_learn.dir/clean
 clean: video/clean
 clean: audio/clean
 clean: player/clean
+clean: pushStream/clean
 clean: test/clean
 clean: examples/clean
 .PHONY : clean
@@ -134,6 +137,21 @@ player/preinstall:
 # Recursive "clean" directory target.
 player/clean: player/CMakeFiles/player.dir/clean
 .PHONY : player/clean
+
+#=============================================================================
+# Directory level rules for directory pushStream
+
+# Recursive "all" directory target.
+pushStream/all: pushStream/CMakeFiles/pushStream.dir/all
+.PHONY : pushStream/all
+
+# Recursive "preinstall" directory target.
+pushStream/preinstall:
+.PHONY : pushStream/preinstall
+
+# Recursive "clean" directory target.
+pushStream/clean: pushStream/CMakeFiles/pushStream.dir/clean
+.PHONY : pushStream/clean
 
 #=============================================================================
 # Directory level rules for directory test
@@ -225,7 +243,7 @@ video/clean: video/CMakeFiles/video.dir/clean
 CMakeFiles/video_learn.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_learn.dir/build.make CMakeFiles/video_learn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=45,46 "Built target video_learn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=47,48 "Built target video_learn"
 .PHONY : CMakeFiles/video_learn.dir/all
 
 # Build rule for subdir invocation for target.
@@ -251,7 +269,7 @@ CMakeFiles/video_learn.dir/clean:
 video/CMakeFiles/video.dir/all:
 	$(MAKE) $(MAKESILENT) -f video/CMakeFiles/video.dir/build.make video/CMakeFiles/video.dir/depend
 	$(MAKE) $(MAKESILENT) -f video/CMakeFiles/video.dir/build.make video/CMakeFiles/video.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=43,44 "Built target video"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=45,46 "Built target video"
 .PHONY : video/CMakeFiles/video.dir/all
 
 # Build rule for subdir invocation for target.
@@ -349,12 +367,39 @@ player/CMakeFiles/player.dir/clean:
 .PHONY : player/CMakeFiles/player.dir/clean
 
 #=============================================================================
+# Target rules for target pushStream/CMakeFiles/pushStream.dir
+
+# All Build rule for target.
+pushStream/CMakeFiles/pushStream.dir/all:
+	$(MAKE) $(MAKESILENT) -f pushStream/CMakeFiles/pushStream.dir/build.make pushStream/CMakeFiles/pushStream.dir/depend
+	$(MAKE) $(MAKESILENT) -f pushStream/CMakeFiles/pushStream.dir/build.make pushStream/CMakeFiles/pushStream.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles --progress-num=43,44 "Built target pushStream"
+.PHONY : pushStream/CMakeFiles/pushStream.dir/all
+
+# Build rule for subdir invocation for target.
+pushStream/CMakeFiles/pushStream.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pushStream/CMakeFiles/pushStream.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 0
+.PHONY : pushStream/CMakeFiles/pushStream.dir/rule
+
+# Convenience name for target.
+pushStream: pushStream/CMakeFiles/pushStream.dir/rule
+.PHONY : pushStream
+
+# clean rule for target.
+pushStream/CMakeFiles/pushStream.dir/clean:
+	$(MAKE) $(MAKESILENT) -f pushStream/CMakeFiles/pushStream.dir/build.make pushStream/CMakeFiles/pushStream.dir/clean
+.PHONY : pushStream/CMakeFiles/pushStream.dir/clean
+
+#=============================================================================
 # Target rules for target test/CMakeFiles/Google_Tests_run.dir
 
 # All Build rule for target.
 test/CMakeFiles/Google_Tests_run.dir/all: video/CMakeFiles/video.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: audio/CMakeFiles/audio.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: player/CMakeFiles/player.dir/all
+test/CMakeFiles/Google_Tests_run.dir/all: pushStream/CMakeFiles/pushStream.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: test/lib/googletest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/Google_Tests_run.dir/all: test/lib/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/Google_Tests_run.dir/build.make test/CMakeFiles/Google_Tests_run.dir/depend
@@ -364,7 +409,7 @@ test/CMakeFiles/Google_Tests_run.dir/all: test/lib/googletest/CMakeFiles/gtest_m
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/Google_Tests_run.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/Google_Tests_run.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yaohua/c_workspace/video_learn/cmake-build-debug/CMakeFiles 0
 .PHONY : test/CMakeFiles/Google_Tests_run.dir/rule

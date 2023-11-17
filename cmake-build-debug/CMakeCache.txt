@@ -358,6 +358,15 @@ player_IS_TOP_LEVEL:STATIC=OFF
 player_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/player
 
 //Value Computed by CMake
+pushStream_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/pushStream
+
+//Value Computed by CMake
+pushStream_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+pushStream_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/pushStream
+
+//Value Computed by CMake
 test_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/test
 
 //Value Computed by CMake
@@ -513,7 +522,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
