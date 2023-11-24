@@ -5,10 +5,7 @@
 #define VIDEO_LEARN_PUSHSTREAM_H
 
 #include <cstdio>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
 #include <unistd.h>
 
 extern "C" {
