@@ -33,6 +33,17 @@
 |                          |                             |                                  |
 |                          |                             |                                  |
 
+## 编译
+
+```bash
+cd srs/trunk 
+./configure  
+make 
+./objs/srs -c conf/srs.conf
+```
+
+
+
 ## 修改配置
 
 ```nginx
