@@ -240,6 +240,19 @@ pushStream/fast:
 .PHONY : pushStream/fast
 
 #=============================================================================
+# Target rules for targets named yuvUtil
+
+# Build rule for target.
+yuvUtil: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 yuvUtil
+.PHONY : yuvUtil
+
+# fast build rule for target.
+yuvUtil/fast:
+	$(MAKE) $(MAKESILENT) -f libyuv/CMakeFiles/yuvUtil.dir/build.make libyuv/CMakeFiles/yuvUtil.dir/build
+.PHONY : yuvUtil/fast
+
+#=============================================================================
 # Target rules for targets named Google_Tests_run
 
 # Build rule for target.
@@ -365,6 +378,7 @@ help:
 	@echo "... pushStream"
 	@echo "... video"
 	@echo "... video_learn"
+	@echo "... yuvUtil"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

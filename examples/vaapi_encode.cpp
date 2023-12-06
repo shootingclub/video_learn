@@ -26,7 +26,7 @@
  *
  * @example vaapi_encode.c
  * This example shows how to do VAAPI-accelerated encoding. now only support NV12
- * raw file, usage like: vaapi_encode 1920 1080 input.yuv output.h264
+ * raw file, usage like: vaapi_encode 1920 1080 input.yuvUtil output.h264
  *
  */
 

@@ -348,6 +348,9 @@ gtest_force_shared_crt:BOOL=OFF
 //Build gtest with internal symbols hidden in shared libraries.
 gtest_hide_internal_symbols:BOOL=OFF
 
+//Path to a library.
+log-lib:FILEPATH=log-lib-NOTFOUND
+
 //Value Computed by CMake
 player_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/player
 
@@ -392,6 +395,15 @@ video_learn_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 video_learn_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn
+
+//Value Computed by CMake
+yuvUtil_BINARY_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/cmake-build-debug/libyuv
+
+//Value Computed by CMake
+yuvUtil_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+yuvUtil_SOURCE_DIR:STATIC=/Users/yaohua/c_workspace/video_learn/libyuv
 
 
 ########################
@@ -522,7 +534,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

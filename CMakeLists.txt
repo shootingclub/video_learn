@@ -27,6 +27,7 @@ add_subdirectory(video)
 add_subdirectory(audio)
 add_subdirectory(player)
 add_subdirectory(pushStream)
+add_subdirectory(libyuv)
 add_subdirectory(test)
 add_subdirectory(examples)
 
