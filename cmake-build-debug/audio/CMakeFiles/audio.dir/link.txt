@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libaudio.a CMakeFiles/audio.dir/audio.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libaudio.a

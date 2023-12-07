@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libvideo.a CMakeFiles/video.dir/video.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libvideo.a
