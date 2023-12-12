@@ -191,6 +191,7 @@ namespace video {
 
             // 将数据以二进制形式写入文件, 1:代表每次写几个包
 //            fwrite(pkt.data, pkt.size, 1, out_file);
+            //(宽x高)x(yuv420=1.5/ yuv422=2/ yuv444=3)
             fwrite(pkt.data, VIDEO_FMT_DEFAULT_SIZE, 1, out_file);
             // 从缓冲区写入文件
             fflush(out_file);
@@ -269,6 +270,7 @@ namespace video {
 
             // 将数据以二进制形式写入文件, 1:代表每次写几个包
 //            fwrite(pkt.data, pkt.size, 1, out_file);
+            //(宽x高)x(yuv420=1.5/ yuv422=2/ yuv444=3)
             fwrite(pkt.data, VIDEO_FMT_NV12_SIZE, 1, out_file);
             // 从缓冲区写入文件
             fflush(out_file);
